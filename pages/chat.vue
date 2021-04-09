@@ -1,5 +1,9 @@
 <template>
-  <h1>Страница чата {{user.name}} </h1>
+  <div>
+    <ul>
+      <li v-for="message in messages" :key="message.text">{{message.text}}</li>
+    </ul>
+  </div>
 </template>
 <script>
 import {mapState} from 'vuex'
@@ -10,6 +14,6 @@ export default {
       title: `Комната ${this.user.room}`
     }
   },
-  computed: mapState(['user'])
+  computed: mapState(['user', 'messages'])
 }
 </script>
